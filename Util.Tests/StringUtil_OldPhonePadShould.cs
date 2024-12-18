@@ -36,8 +36,8 @@ public class StringUtil_OldPhonePadShould
     [InlineData("1#", "&")]
     [InlineData("11#", "'")]
     [InlineData("111#", "(")]
-    [InlineData("2 1 11 111#", "a&'(")]
-    [InlineData("212211222111#", "a&b'c(")]
+    [InlineData("2 1 11 111#", "A&'(")]
+    [InlineData("212211222111#", "A&B'C(")]
     public void ReturnPunctuation_InputsWith1(string input, string expected)
     {
         var output = StringUtil.OldPhonePad(input);
@@ -46,8 +46,8 @@ public class StringUtil_OldPhonePadShould
 
     [Theory]
     [InlineData("0#", " ")]
-    [InlineData("20#", "a ")]
-    [InlineData("20220222#", "a b c")]
+    [InlineData("20#", "A ")]
+    [InlineData("20220222#", "A B C")]
     public void ReturnSpace_InputsWith0(string input, string expected)
     {
         var output = StringUtil.OldPhonePad(input);
@@ -56,8 +56,8 @@ public class StringUtil_OldPhonePadShould
 
     [Theory]
     [InlineData("", "")]
-    [InlineData("2", "a ")]
-    [InlineData("2322 222", "adbc")]
+    [InlineData("2", "A")]
+    [InlineData("2322 222", "ADBC")]
     public void Handle_InputsWithMissingHash(string input, string expected)
     {
         var output = StringUtil.OldPhonePad(input);
@@ -66,8 +66,8 @@ public class StringUtil_OldPhonePadShould
 
     [Theory]
     [InlineData("", "")]
-    [InlineData("2#22344", "a")]
-    [InlineData("2322 222#234567899", "adbc")]
+    [InlineData("2#22344", "A")]
+    [InlineData("2322 222#234567899", "ADBC")]
     public void Handle_InputsWithHashInTheMiddle(string input, string expected)
     {
         var output = StringUtil.OldPhonePad(input);
@@ -75,15 +75,15 @@ public class StringUtil_OldPhonePadShould
     }
 
     [Theory]
-    [InlineData("2222#", "ca")]
-    [InlineData("22222#", "cb")]
-    [InlineData("222222#", "cc")]
-    [InlineData("2222222#", "cca")]
-    [InlineData("77777#", "sp")]
-    [InlineData("777777#", "sq")]
-    [InlineData("7777777#", "sr")]
-    [InlineData("77777777#", "ss")]
-    [InlineData("777777777#", "ssp")]
+    [InlineData("2222#", "CA")]
+    [InlineData("22222#", "CB")]
+    [InlineData("222222#", "CC")]
+    [InlineData("2222222#", "CCA")]
+    [InlineData("77777#", "SP")]
+    [InlineData("777777#", "SQ")]
+    [InlineData("7777777#", "SQ")]
+    [InlineData("77777777#", "SS")]
+    [InlineData("777777777#", "SSP")]
     public void Handle_InputsWithMoreThanCharCountKeyPress(string input, string expected)
     {
         var output = StringUtil.OldPhonePad(input);
@@ -92,7 +92,7 @@ public class StringUtil_OldPhonePadShould
 
     [Theory]
     [InlineData(" ab.-*!$%&   c  de # ", "")]
-    [InlineData("2a22bc222dd3  33#", "abcde")]
+    [InlineData("2a22bc222dd3  33#", "ABCDE")]
     public void Handle_InputsWithNonDigitChars(string input, string expected)
     {
         var output = StringUtil.OldPhonePad(input);
