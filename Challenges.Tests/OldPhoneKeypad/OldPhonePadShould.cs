@@ -1,5 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace Challenges.Tests.OldPhonePad;
 
+[ExcludeFromCodeCoverage]
 public class OldPhonePadShould
 {
     [Theory]
