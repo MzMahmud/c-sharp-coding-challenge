@@ -1,8 +1,8 @@
-﻿using System.Text;
+using System.Text;
 
-namespace Util;
+namespace Challenges;
 
-public class StringUtil
+public class OldPhoneKeypad
 {
     private static readonly string[] KEY_MAP = [" ", "&'(", "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"];
 

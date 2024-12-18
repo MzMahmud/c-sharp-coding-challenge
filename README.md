@@ -37,13 +37,15 @@ OldPhonePad("8 88777444666*664#") => output: TURING
 #### Solution
 **Solution Function**
 ```
-Util
-    StringUtil.cs
-        public static string OldPhonePad(string input)
+Challenges
+    OldPhoneKeypad
+        OldPhoneKeypad.cs
+            public static string OldPhonePad(string input)
 ```
 
 **Test Cases**
 ```
-Util.Tests
-    StringUtil_OldPhonePadShould.cs
+Challenges.Tests
+    OldPhoneKeypad
+        OldPhonePadShould.cs
 ```

@@ -1,6 +1,6 @@
-namespace Util.Tests;
+namespace Challenges.Tests.OldPhonePad;
 
-public class StringUtil_OldPhonePadShould
+public class OldPhonePadShould
 {
     [Theory]
     [InlineData("222 2 22#", "CAB")]
@@ -14,7 +14,7 @@ public class StringUtil_OldPhonePadShould
     )]
     public void PassExamples(string input, string expected)
     {
-        var output = StringUtil.OldPhonePad(input);
+        var output = OldPhoneKeypad.OldPhonePad(input);
         Assert.Equal(expected, output);
     }
 
@@ -28,7 +28,7 @@ public class StringUtil_OldPhonePadShould
     [InlineData("2 2 22***3*#", "")]
     public void ReturnEmpty(string input, string expected)
     {
-        var output = StringUtil.OldPhonePad(input);
+        var output = OldPhoneKeypad.OldPhonePad(input);
         Assert.Equal(expected, output);
     }
 
@@ -40,7 +40,7 @@ public class StringUtil_OldPhonePadShould
     [InlineData("212211222111#", "A&B'C(")]
     public void ReturnPunctuation_InputsWith1(string input, string expected)
     {
-        var output = StringUtil.OldPhonePad(input);
+        var output = OldPhoneKeypad.OldPhonePad(input);
         Assert.Equal(expected, output);
     }
 
@@ -50,7 +50,7 @@ public class StringUtil_OldPhonePadShould
     [InlineData("20220222#", "A B C")]
     public void ReturnSpace_InputsWith0(string input, string expected)
     {
-        var output = StringUtil.OldPhonePad(input);
+        var output = OldPhoneKeypad.OldPhonePad(input);
         Assert.Equal(expected, output);
     }
 
@@ -60,7 +60,7 @@ public class StringUtil_OldPhonePadShould
     [InlineData("2322 222", "ADBC")]
     public void Handle_InputsWithMissingHash(string input, string expected)
     {
-        var output = StringUtil.OldPhonePad(input);
+        var output = OldPhoneKeypad.OldPhonePad(input);
         Assert.Equal(expected, output);
     }
 
@@ -70,7 +70,7 @@ public class StringUtil_OldPhonePadShould
     [InlineData("2322 222#234567899", "ADBC")]
     public void Handle_InputsWithHashInTheMiddle(string input, string expected)
     {
-        var output = StringUtil.OldPhonePad(input);
+        var output = OldPhoneKeypad.OldPhonePad(input);
         Assert.Equal(expected, output);
     }
 
@@ -86,7 +86,7 @@ public class StringUtil_OldPhonePadShould
     [InlineData("777777777#", "SSP")]
     public void Handle_InputsWithMoreThanCharCountKeyPress(string input, string expected)
     {
-        var output = StringUtil.OldPhonePad(input);
+        var output = OldPhoneKeypad.OldPhonePad(input);
         Assert.Equal(expected, output);
     }
 
@@ -95,7 +95,7 @@ public class StringUtil_OldPhonePadShould
     [InlineData("2a22bc222dd3  33#", "ABCDE")]
     public void Handle_InputsWithNonDigitChars(string input, string expected)
     {
-        var output = StringUtil.OldPhonePad(input);
+        var output = OldPhoneKeypad.OldPhonePad(input);
         Assert.Equal(expected, output);
     }
 }
