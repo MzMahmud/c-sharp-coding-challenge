@@ -40,8 +40,32 @@ public class OldPhoneKeypad
         return output.ToString();
     }
 
+
+    public static readonly Dictionary<char, KeyCount> CHAR_KEY_COUNT = new Func<Dictionary<char, KeyCount>>(
+        () =>
+        {
+            var map = new Dictionary<char, KeyCount>();
+            for (int keyIndex = 0; keyIndex < KEY_MAP.Length; keyIndex++)
+            {
+                for (int charIndex = 0; charIndex < KEY_MAP[keyIndex].Length; charIndex++)
+                {
+                    char character = KEY_MAP[keyIndex][charIndex];
+                    var keyCount = new KeyCount { Key = (char)(keyIndex + '0'), Count = charIndex + 1 };
+                    map.Add(character, keyCount);
+                }
+            }
+            return map;
+        }
+    )();
+
     public static string ToOldPhonePad(string input)
     {
         throw new NotImplementedException("Not Implemented!");
     }
+}
+
+public record struct KeyCount
+{
+    public char Key { get; set; }
+    public int Count { get; set; }
 }
