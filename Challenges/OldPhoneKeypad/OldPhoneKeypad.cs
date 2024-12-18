@@ -60,7 +60,24 @@ public class OldPhoneKeypad
 
     public static string ToOldPhonePad(string input)
     {
-        throw new NotImplementedException("Not Implemented!");
+        var output = new StringBuilder();
+        char? lastKey = null;
+        foreach (char ch in input)
+        {
+            char currentChar = char.ToUpper(ch);
+            if (!CHAR_KEY_COUNT.ContainsKey(currentChar))
+            {
+                throw new ArgumentException($"Contains invalid character '{currentChar}'");
+            }
+            var keyCount = CHAR_KEY_COUNT[currentChar];
+            if (lastKey == keyCount.Key)
+            {
+                output.Append(' ');
+            }
+            output.Append(keyCount.Key, keyCount.Count);
+            lastKey = keyCount.Key;
+        }
+        return output.ToString();
     }
 }
 
