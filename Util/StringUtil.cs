@@ -1,4 +1,6 @@
-﻿namespace Util;
+﻿using System.Text;
+
+namespace Util;
 
 public class StringUtil
 {
@@ -6,7 +8,7 @@ public class StringUtil
 
     public static string OldPhonePad(string input)
     {
-        var output = new List<char>();
+        var output = new StringBuilder();
         for (int i = 0; i < input.Length; i++)
         {
             char currentChar = input[i];
@@ -21,13 +23,13 @@ public class StringUtil
                 }
                 i--;
                 int charIndex = charCount - 1;
-                output.Add(KEY_MAP[keyIndex][charIndex]);
+                output.Append(KEY_MAP[keyIndex][charIndex]);
             }
             else if (currentChar == '*')
             {
-                if (output.Count > 0)
+                if (output.Length > 0)
                 {
-                    output.RemoveAt(output.Count - 1);
+                    output.Remove(output.Length - 1, 1);
                 }
             }
             else if (currentChar == '#')
@@ -35,6 +37,6 @@ public class StringUtil
                 break;
             }
         }
-        return string.Join("", output);
+        return output.ToString();
     }
 }
