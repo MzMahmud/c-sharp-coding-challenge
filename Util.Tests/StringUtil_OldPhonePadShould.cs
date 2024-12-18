@@ -81,7 +81,7 @@ public class StringUtil_OldPhonePadShould
     [InlineData("2222222#", "CCA")]
     [InlineData("77777#", "SP")]
     [InlineData("777777#", "SQ")]
-    [InlineData("7777777#", "SQ")]
+    [InlineData("7777777#", "SR")]
     [InlineData("77777777#", "SS")]
     [InlineData("777777777#", "SSP")]
     public void Handle_InputsWithMoreThanCharCountKeyPress(string input, string expected)
