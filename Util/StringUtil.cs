@@ -12,7 +12,11 @@ public class StringUtil
         for (int i = 0; i < input.Length; i++)
         {
             char currentChar = input[i];
-            if (Char.IsDigit(currentChar))
+            if (currentChar == '#')
+            {
+                break;
+            }
+            else if (Char.IsDigit(currentChar))
             {
                 int keyIndex = currentChar - '0';
                 int charCount = 0;
