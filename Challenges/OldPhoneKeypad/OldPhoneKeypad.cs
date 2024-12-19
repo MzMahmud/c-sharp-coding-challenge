@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Challenges;
+namespace Challenges.OldPhoneKeypad;
 
 public class OldPhoneKeypad
 {
@@ -16,13 +16,13 @@ public class OldPhoneKeypad
             {
                 int keyIndex = currentChar - '0';
                 int charCount = 0;
-                while (i < input.Length && input[i] == currentChar && charCount < KEY_MAP[keyIndex].Length)
+                while (i < input.Length && input[i] == currentChar)
                 {
                     charCount++;
                     i++;
                 }
                 i--;
-                int charIndex = charCount - 1;
+                int charIndex = (charCount - 1) % KEY_MAP[keyIndex].Length;
                 output.Append(KEY_MAP[keyIndex][charIndex]);
             }
             else if (currentChar == '*')

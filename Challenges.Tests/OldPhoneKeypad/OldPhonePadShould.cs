@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Challenges.Tests.OldPhonePad;
+namespace Challenges.Tests.OldPhoneKeypad;
+
+using Challenges.OldPhoneKeypad;
 
 [ExcludeFromCodeCoverage]
 public class OldPhonePadShould
@@ -78,15 +80,15 @@ public class OldPhonePadShould
     }
 
     [Theory]
-    [InlineData("2222#", "CA")]
-    [InlineData("22222#", "CB")]
-    [InlineData("222222#", "CC")]
-    [InlineData("2222222#", "CCA")]
-    [InlineData("77777#", "SP")]
-    [InlineData("777777#", "SQ")]
-    [InlineData("7777777#", "SR")]
-    [InlineData("77777777#", "SS")]
-    [InlineData("777777777#", "SSP")]
+    [InlineData("2222#", "A")]
+    [InlineData("22222#", "B")]
+    [InlineData("222222#", "C")]
+    [InlineData("2222222#", "A")]
+    [InlineData("77777#", "P")]
+    [InlineData("777777#", "Q")]
+    [InlineData("7777777#", "R")]
+    [InlineData("77777777#", "S")]
+    [InlineData("777777777#", "P")]
     public void Handle_InputsWithMoreThanCharCountKeyPress(string input, string expected)
     {
         var output = OldPhoneKeypad.OldPhonePad(input);

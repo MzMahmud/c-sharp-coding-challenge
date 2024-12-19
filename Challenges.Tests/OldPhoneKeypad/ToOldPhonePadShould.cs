@@ -1,6 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace Challenges.Tests.OldPhonePad;
+namespace Challenges.Tests.OldPhoneKeypad;
+
+using Challenges.OldPhoneKeypad;
+
 
 [ExcludeFromCodeCoverage]
 public class ToOldPhonePadShould
