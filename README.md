@@ -35,7 +35,7 @@ OldPhonePad("8 88777444666*664#") => output: TURING
 ```
 
 #### Solution
-**Solution Function**
+##### Solution Function
 ```
 Challenges
     OldPhoneKeypad
@@ -43,9 +43,29 @@ Challenges
             public static string OldPhonePad(string input)
 ```
 
-**Test Cases**
+##### Test Cases
 ```
 Challenges.Tests
     OldPhoneKeypad
         OldPhonePadShould.cs
 ```
+
+##### Assumptions Expressed in Test Cases
+
+- **`ReturnPunctuation_InputsWith1`**  
+  In the phone image, the key `1` is shown with the punctuation `&'(`. This test case covers scenarios where the input contains `1`, returning the corresponding punctuation.
+
+- **`ReturnSpace_InputsWith0`**  
+  Similar to the previous case, `0` is mapped to `' '` (space). This test case ensures that the input `0` correctly returns a space.
+
+- **`Handle_InputsWithMissingHash`**  
+  Although the problem explicitly mentions that the input will always end with a `#`, I decided to handle cases where the `#` is missing.
+
+- **`Handle_InputsWithHashInTheMiddle`**  
+  Like the previous case, this test handles inputs where a `#` appears in the middle. In such cases, the input before the `#` is processed, and the rest is ignored.
+
+- **`Handle_InputsWithMoreThanCharCountKeyPress`**  
+  If a key is pressed more times than the number of characters mapped to it, the selection cycles through the mapped characters. For example, if `2` is pressed 4 times, it follows this cycle: `A → B → C → A`.
+
+- **`Handle_InputsWithNonDigitChars`**  
+  While non-digit characters could be considered invalid input, I chose to ignore them and process only the valid digit characters.
