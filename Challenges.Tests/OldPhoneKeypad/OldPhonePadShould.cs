@@ -1,4 +1,6 @@
-namespace Challenges.Tests.OldPhonePad;
+namespace Challenges.Tests.OldPhoneKeypad;
+
+using Challenges.OldPhoneKeypad;
 
 public class OldPhonePadShould
 {

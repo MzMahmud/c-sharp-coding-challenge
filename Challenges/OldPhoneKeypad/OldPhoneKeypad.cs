@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Challenges;
+namespace Challenges.OldPhoneKeypad;
 
 public class OldPhoneKeypad
 {
